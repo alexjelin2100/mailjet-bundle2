@@ -15,29 +15,11 @@ Symfony bundle for handling Mailjet API V3 using this wrapper: <https://github.c
 * [x] Synchronize Contact Metadata (Contact Properties) with your config
 * [x] Synchronize your user with Mailjet contact list
 * [x] Use your own userProvider (basic `FosContactProvider` included to interface with FosUserBundle)
-* [x] Use lifecycle event to subscribe/unsubscribe/update/delete/changeMail user from a contact List
+* [x] Use lifecycle event to subscribe/unsubscribe/update/delete/changeEmail user from a contact List
 * [x] Register Event API - real time notifications (webhook)
+* [x] Manage Campaigns,Campaigndrafts and Templates
 
 ## Setup
-
-Add `Mailjet\MailjetBundle\MailjetBundle` to your `bundles.php`:
-
-```php
-$bundles = [
-    // ...
-    Mailjet\MailjetBundle\MailjetBundle::class => ['all' => true]
-];
-```
-
-## Minimal Configuration
-
-In your `config.yml` add:
-
-```yaml
-mailjet:
-    api_key:    "%mailjet.api_key%"
-    secret_key: "%mailjet.secret_key%"
-```
 
 Add bundle to your project:
 
@@ -45,11 +27,31 @@ Add bundle to your project:
 composer require mailjet/mailjet-bundle
 ```
 
+Add `Mailjet\MailjetBundle\MailjetBundle` to your `AppKernel.php`:
+
+```php
+$bundles = [
+    // ...
+    new Mailjet\MailjetBundle\MailjetBundle(),
+];
+```
+
+## Minimal Configuration
+
+In your `config.yml`:
+
+```yaml
+mailjet:
+    api_key:    "%mailjet.api_key%"
+    secret_key: "%mailjet.secret_key%"
+```
+
 ## ToDo
 
 * More unit tests
 * Functionnal tests
 * Other features like Campaigns, stats, ...
+
 
 ## Contributing
 
